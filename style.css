@@ -1,0 +1,197 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Cascadia Code', monospace;
+}
+
+body{
+    background: #2a0529;
+}
+
+/* Background */
+section{
+    background: #2a0529;
+    position:relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+/* Card */
+.container{
+    position: relative;
+    width: 90%;
+    max-width: 475px;
+    height: 275px;
+    z-index: 10;
+    transition: transform 0.8s ease-in-out; /* smoother flip */
+    transform-style: preserve-3d;
+}
+
+.container:hover{
+    transform: rotateY(180deg);
+}
+
+.container .card{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffff4c;
+    border-radius: 35px;
+    overflow: hidden;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Front Face */
+.front-face{
+    padding: 0 30px;
+}
+
+.top {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo > img{
+    width: 70px;
+    object-fit: cover;
+}
+
+.chip {
+    width: 65px;
+    object-fit: cover;
+}
+
+.middle{
+    margin-top: 20px; /* replaced absolute positioning */
+}
+
+.title{
+    letter-spacing: 2px;
+    font-size: small;
+}
+
+.number{
+    margin-top: 10px;
+    letter-spacing: 3px;
+    font-size: large;
+}
+
+.bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name{
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.expiry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.expiry > .validtext{
+    font-size: 15px;
+}
+
+.date{
+    font-size: 20px;
+}
+
+/* Back Face */
+.back-face{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotateY(180deg);
+}
+
+.customer{
+    margin-top: 30px;
+    font-size: 10px;
+}
+
+.strip{
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+    margin-top: 10px;
+}
+
+.cvv-section{
+    margin-top: 20px;
+    width: 80%;
+    padding: 10px 0;
+    background-color: #f3f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cvv-section > .blursection{
+    background-color: rgb(198, 198, 198);
+    height: 230%;
+    width: 100%;
+    position: relative;
+}
+
+/* Scratch lines fixed */
+.blursection::before,
+.blursection::after{
+  content: '';
+  position: absolute;
+  height: 10px;
+  width: 90%;
+  background: rgba(255,255,255,0.3);
+}
+
+.blursection::before {
+  top:35%;
+  left: 10%;
+}
+
+.blursection::after {
+  top: 55%;
+  left: 10%;
+}
+
+.cvv-section > .number{
+    color: black;
+    font-style: italic;
+}
+
+.description{
+    width: 85%;
+    margin: 20px 0 ;
+    font-size: 12px;
+}
